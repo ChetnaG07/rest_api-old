@@ -5,6 +5,7 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const dotenv = require("dotenv");
 const { checkUser } = require("./routes/verifyToken");
+const PORT = process.env.PORT || 5000;
 
 //Import Routes
 const postRoute = require("./routes/posts");
@@ -43,4 +44,4 @@ app.get("/", (req, res) => {
 });
 app.post("/posts", checkUser);
 
-app.listen(5000);
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
